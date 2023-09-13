@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="div-logo">
+        <div class="logo">
+          <h1>Logo</h1>
+        </div>
+      </div>
+
+      <div class="center-buttons">
+        <h3 class="home-button">Home</h3>
+        <h4 class="updates">Updates</h4>
+        <h4 class="services">Services</h4>
+        <h4 class="features">Features</h4>
+        <h4 class="about-us">About Us</h4>
+      </div>
+
+      <div class="sign-up">
+        <button>SignUp</button>
+      </div>
+
+      <div class="log-in">
+        <button>LogIn</button>
+      </div>
+    </div>
+
+    <div class="page1">
+      <div class="main-text">
+        <h1>
+          Embracing an Eco-Friendly System <span>solution</span> are designed to
+          reduce plastic waste
+        </h1>
+      </div>
+
+      <div class="button-community">
+        <button>
+          <h1>JOIN COMMUNITY</h1>
+        </button>
+      </div>
+    </div>
+
+    <div class="page2">
+      <div class="left-half">
+        <img src="{{ url_for('static', filename='./promise.jpg') }}" alt="" />
+<!-- Repeat this for other images -->
+
+        
+      </div>
+      <div class="right-half">
+        <h1>Reducing Plastic Waste Today</h1>
+
+        <h3>
+          "At Logo name, our mission is to drive positive change by promoting
+          sustainable practices and reducing plastic waste. Join us in creating
+          a healthier, greener future."
+        </h3>
+
+        <button>Learn More</button>
+      </div>
+    </div>
+
+    <div class="page3">
+      <div class="container">
+        <div class="wrapper">
+          <div class="banner-image"> </div>
+          <h1> Camera</h1>
+     
+         </div>
+         <div class="button-wrapper"> 
+            <a href="{{ url_for('main.camsort') }}"><button class="btn outline">Camera</button></a>
+            
+         </div>
+           </div>
+           <div class="camera-text">
+            <h2>"This innovative camera helps you quickly identify 
+              whether an object is recyclable or non-recyclable by
+               scanning it with your phone's camera"</h2>
+           </div>
+       </div>
+
+
+    <div class="page4">
+        <div class="container">
+          <div class="wrapper">
+            <div class="banner-image-carbon"> </div>
+            <h1>Carbon Emission</h1>
+       
+           </div>
+           <div class="button-wrapper"> 
+            <a href="{{ url_for('main.carbon_footprint') }}"><button class="btn outline">Carbon Footprint</button></a>
+              
+           </div>
+             </div>
+             <div class="carbon-text">
+              <h2>"Easily measure your carbon footprint 
+                by answering questions about your lifestyle, 
+                travel habits, and energy consumption."</h2>
+             </div>
+       </div>
+
+    <div class="page5">
+      <div class="container">
+        <div class="wrapper">
+          <div class="banner-image-chatbot"> </div>
+          <h1> Chatbot</h1>
+     
+         </div>
+         <div class="button-wrapper"> 
+            <a href="{{ url_for('main.chatbot') }}"><button class="btn outline">Chatbot</button></a>
+            
+         </div>
+           </div>
+           <div class="camera-text">
+            <h2>"This innovative camera helps you quickly identify 
+              whether an object is recyclable or non-recyclable by
+               scanning it with your phone's camera"</h2>
+           </div>
+    </div>   
+
+    <div class="page6">
+      <div class="container">
+        <div class="wrapper">
+          <div class="banner-image-games"> </div>
+          <h1>Games</h1>
+     
+         </div>
+         <div class="button-wrapper"> 
+            <form action="{{ url_for('main.quiz') }}" method="POST">
+                <button class="btn outline" type="submit">Play</button>
+            </form>
+            
+         </div>
+           </div>
+           <div class="carbon-text">
+            <h2>"Easily measure your carbon footprint 
+              by answering questions about your lifestyle, 
+              travel habits, and energy consumption."</h2>
+           </div>
+    </div>
+
+    <div class="page7">
+      <h1>Save Trees Go Green</h1>
+      <button>Join Our Community</button>
+    </div>
+
+   
+       
+
+  <footer class="footer">
+    <div class="container">
+     <div class="row">
+       <div class="footer-col">
+         <h4>company</h4>
+         <ul>
+           <li><a href="#">about us</a></li>
+           <li><a href="#">our services</a></li>
+           <li><a href="#">privacy policy</a></li>
+           
+         </ul>
+       </div>
+       <div class="footer-col">
+         <h4>Quick Links</h4>
+         <ul>
+           <li><a href="#">Item Camera Sort</a></li>
+           <li><a href="#">Carbon Foot Print</a></li>
+           <li><a href="#">Chatbot</a></li>
+           <li><a href="#">Game</a></li>
+            
+         </ul>
+       </div>
+       <div class="footer-col">
+         <h4>Help</h4>
+         <ul>
+           <li><a href="#">Customer Support</a></li>
+           <li><a href="#">Terms and Conditions</a></li>
+           <li><a href="#">Privace Policy</a></li>
+            
+         </ul>
+       </div>
+       <div class="footer-col">
+         <h4>follow us</h4>
+         <div class="social-links">
+          <i class="ri-instagram-line"></i>
+          <i class="ri-twitter-line"></i>
+          <i class="ri-facebook-circle-fill"></i>
+          <i class="ri-discord-line"></i>
+         </div>
+       </div>
+     </div>
+    </div>
+ </footer>
+     
+
+
+     
+      
+    <script src="./script.css"></script>
+  </body>
+</html>

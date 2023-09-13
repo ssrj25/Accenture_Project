@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+</head>
+<body>
+    <h2>Your Quiz Result</h2>
+    <p>You scored {{ score }} out of 10</p>
+    <form action="{{ url_for('main.show_correct_answers') }}" method="POST">
+        <button type="submit">Correct Answers</button>
+    </form>
+    <form action="{{ url_for('main.play_again') }}" method="POST">
+        <button type="submit">Play Again</button>
+    </form>
+</body>
+</html>

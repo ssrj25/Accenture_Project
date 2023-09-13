@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4CAF50; /* Green background color */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color: #333; /* Dark background color for the header */
+            color: #fff;
+            padding: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        #image-container {
+            border: 2px dashed #333; /* Dark border */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        #uploaded-image {
+            max-width: 100%;
+            max-height: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #image-upload {
+            display: none;
+        }
+
+        label {
+            background-color: #4CAF50; /* Green button background color */
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: inline-block;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        label:hover {
+            background-color: #45a049; /* Slightly darker green on hover */
+        }
+
+        #remove-button {
+            display: none;
+            margin-top: 10px;
+            background-color: #E74C3C; /* Red remove button */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 18px;
+            justify-content: center;
+        }
+
+        #remove-button:hover {
+            background-color: #c0392b; /* Slightly darker red on hover */
+        }
+
+        /* Add a loading spinner style */
+        #loading-spinner {
+            display: none;
+            margin-top: 20px;
+            width: 50px;
+            height: 50px;
+            border: 5px solid greenyellow;
+            border-top: 5px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Keyframes for the loading spinner animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Style for displaying the response string */
+        #response-text {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>CamSort</h1>
+    </div>
+    <div id="image-container">
+        <!-- Initially, display a blank image -->
+        <label for="image-upload">Upload an Image</label>
+        <input type="file" id="image-upload" accept="image/*">
+        <img id="uploaded-image" src="../static/blank-image.png" alt="Uploaded Image">
+        <!-- Initially, the remove button is hidden -->
+        <button id="remove-button">Remove</button>
+        <!-- Add a loading spinner element -->
+        <div id="loading-spinner"></div>
+        <!-- Display the response string here -->
+        <div id="response-text"></div>
+    </div>
+    
+    <script>
+        // Get references to the HTML elements
+        const imageContainer = document.getElementById('image-container');
+        const uploadedImage = document.getElementById('uploaded-image');
+        const imageUpload = document.getElementById('image-upload');
+        const removeButton = document.getElementById('remove-button');
+
+        // Event listener for when a file is selected
+        imageUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                // Display the uploaded image
+                const imageUrl = URL.createObjectURL(file);
+                uploadedImage.src = imageUrl;
+                removeButton.style.display = 'block';
+            }
+        });
+
+        // Event listener for the remove button
+        removeButton.addEventListener('click', () => {
+            // Clear the uploaded image and hide the remove button
+            uploadedImage.src = '../static/blank-image.png'; // Replace with your blank image URL
+            removeButton.style.display = 'none';
+            // Clear the file input value
+            imageUpload.value = '';
+        });
+
+        function showLoadingSpinner() {
+            document.getElementById('loading-spinner').style.display = 'block';
+        }
+
+        // Function to hide loading spinner
+        function hideLoadingSpinner() {
+            document.getElementById('loading-spinner').style.display = 'none';
+        }
+
+        // Function to display the response string
+        function displayResponse(responseString) {
+            const responseText = document.getElementById('response-text');
+            responseText.textContent = responseString;
+        }
+
+        // Event listener for image upload form submission
+        imageUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                // Display the loading spinner while processing the image
+                showLoadingSpinner();
+
+                // Create a FormData object to send the image to the server
+                const formData = new FormData();
+                formData.append('image', file);
+
+                // Send the image to the server for processing
+                fetch('/process_image', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(responseString => {
+                    // Hide the loading spinner and display the response
+                    hideLoadingSpinner();
+                    displayResponse(responseString);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Handle errors here
+                });
+            }
+        });
+    </script>
+</body>
+</html>

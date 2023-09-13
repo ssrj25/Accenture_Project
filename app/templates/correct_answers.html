@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Correct Answers</title>
+</head>
+<body>
+    <h2>Correct Answers</h2>
+    <ul>
+        {% for idx, question_info in enumerated_quiz_data %}
+            <li>
+                Question {{ idx }}: {{ question_info['question'] }}
+                <br>
+                Correct Answer: {{ correct_answers[idx - 1] }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
