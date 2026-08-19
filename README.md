@@ -1,26 +1,29 @@
-# Green Future
+# Green Future: Sustainability & Environmental Awareness
 
-A sustainability-focused web application that combines interactive education and technology to encourage environmentally conscious decisions.
+A technology-driven sustainability platform designed to help users understand environmental impact and make more sustainable choices. The project combines education, machine learning, and interactive tools into a single web experience.
 
-## Features
+## What It Does
 
-- Recycling classification using an image-based camera tool
-- Carbon footprint calculator
-- Eco-friendly chatbot
-- Interactive sustainability education
+The platform provides multiple sustainability-focused features: an interactive recycling game for education, a Green Sort Camera for identifying recyclable items, a carbon footprint calculator for estimating personal impact, and an Eco-Buddy chatbot for eco-friendly guidance.
 
-## Tech Stack
+## Key Features
 
-- Python
+- **Green Sort Camera:** Uses image classification to help identify recyclable items.
+- **Eco-Game:** Interactive learning experience focused on recycling and sustainability.
+- **Carbon Footprint Calculator:** Estimates environmental impact from lifestyle choices.
+- **Eco-Buddy Chatbot:** Provides sustainability-oriented recommendations and guidance.
+
+## Technologies Used
+
+- Python / Flask
 - TensorFlow
-- CNN / Transfer Learning
-- Flask
+- Convolutional Neural Networks (CNN)
+- Transfer Learning
+- Machine Learning
 - JavaScript
 - Open-source APIs
 
 ## Screenshots
-
-The original project screenshots are retained below.
 
 ![Screenshot 2023-11-16 214016](https://github.com/user-attachments/assets/9d20b5d6-5348-4837-af4a-4412498eef64)
 ![Screenshot 2023-11-16 214030](https://github.com/user-attachments/assets/9e2f24af-f234-4ca8-a9ac-d78c5c671700)
